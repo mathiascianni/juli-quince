@@ -60,3 +60,18 @@ export const eventOrder = [
     },
 
 ]
+
+export const photos = [
+    {
+        src: "media/photo_1.JPG",
+        alt: "foto del book"
+    },
+    {
+        src: "media/photo_2.JPG",
+        alt: "foto del book"
+    },
+    {
+        src: "media/photo_3.JPG",
+        alt: "foto del book"
+    },
+];

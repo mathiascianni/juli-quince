@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`z-50 fixed flex items-center gap-4 bg-indigo-800 px-4 py-4 w-full transition-all duration-500 ${isShowing ? 'translate-y-0' : '-translate-y-full'}`}>
+    <nav className={`z-40 fixed flex items-center gap-4 bg-indigo-800 px-4 py-4 w-full transition-all duration-500 ${isShowing ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="flex justify-between items-center w-full">
         <a href="#incio">July</a>
         <button
