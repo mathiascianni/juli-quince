@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 
 const Header = () => {
   return (
-    <header className="flex flex-col justify-center items-center gap-8 h-screen font-body">
+    <header className="flex flex-col justify-center items-center gap-8 h-screen font-body" id="inicio">
       <motion.p
         className="tracking-widest"
         initial={{ opacity: 0, y: 10 }}
