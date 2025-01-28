@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        "tab": "100px",
+        "desk": "280px",
+      },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-9deg)' },

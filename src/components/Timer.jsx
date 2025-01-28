@@ -1,8 +1,26 @@
 import { useState, useEffect } from "react";
-
+import { motion } from "motion/react";
+import { delay } from "motion";
 
 const Timer = ({ targetDate }) => {
     const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDate));
+    const variants = { 
+        visible: { 
+            opacity: 1,
+            transition:{
+                delay: 0.5,
+                staggerChildren: 0.2,
+                when: "beforeChildren",
+                
+            }
+         }, 
+        hidden: { opacity: 0 } 
+    };
+
+    const childVariants = { 
+        visible: { opacity: 1, y: 0 }, 
+        hidden: { opacity: 0, y: 20 } 
+    };
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -29,14 +47,14 @@ const Timer = ({ targetDate }) => {
 
     return (
         <div className="w-full font-body text-center">
-            <h2 className="mb-4 font-title text-2xl text-center">Faltan sólo</h2>
-            <div className="flex justify-center items-center gap-2 mb-4">
-                <span className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.days}d</span>
-                <span className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.hours}h</span>
-                <span className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.minutes}m</span>
-                <span className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.seconds}s</span>
-            </div>
-            <p>Para una noche inolvidable</p>
+            <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-4 font-title text-2xl text-center">Faltan sólo</motion.h2>
+            <motion.div variants={variants} initial="hidden" viewport={{ once: true }} whileInView="visible" className="flex justify-center items-center gap-2 mb-4">
+                <motion.span variants={childVariants} className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.days} <span className="inline xl:hidden">d</span><span className="xl:inline hidden">días</span></motion.span>
+                <motion.span variants={childVariants} className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.hours} <span className="inline xl:hidden">h</span><span className="xl:inline hidden">horas</span></motion.span>
+                <motion.span variants={childVariants} className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.minutes} <span className="inline xl:hidden">m</span><span className="xl:inline hidden">minutos</span></motion.span>
+                <motion.span variants={childVariants} className="block flex-1 bg-white/20 backdrop-blur-md p-2 text-center text-white">{timeLeft.seconds} <span className="inline xl:hidden">s</span><span className="xl:inline hidden">segundos</span></motion.span>
+            </motion.div>
+            <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.7 }}>Para una noche inolvidable</motion.p>
         </div>
     );
 };

@@ -29,7 +29,7 @@ const Header = () => {
       
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        28-02-2025
+        28-02-2025 - 21:00hs
       </motion.p>
     </header>
   )

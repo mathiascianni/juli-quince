@@ -27,8 +27,29 @@ html {
 }
 
 .font-body {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-  }
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4338ca;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #312e81;
+}

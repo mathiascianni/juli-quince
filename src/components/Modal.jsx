@@ -26,7 +26,7 @@ const Modal = ({ isOpen, onClose }) => {
             onClick={onClose}
           >
             <motion.div
-              className="bg-white shadow-lg p-6 rounded-md w-full text-center"
+              className="bg-white shadow-lg xl:py-16 p-6 rounded-md w-full xl:max-w-[600px] text-center cursor-default"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}

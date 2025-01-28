@@ -34,16 +34,26 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`z-40 fixed flex items-center gap-4 bg-indigo-800 px-4 py-4 w-full transition-all duration-500 ${isShowing ? 'translate-y-0' : '-translate-y-full'}`}>
+    <nav className={`z-40 fixed flex items-center gap-4 xl:px-desk bg-indigo-700 px-4 py-4 w-full transition-all duration-500 ${isShowing ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="flex justify-between items-center w-full">
         <a href="#incio">July</a>
         <button
           onClick={toggleMenu}
+          className="block xl:hidden"
         >
           <img src="icons/menu.svg" alt="" />
         </button>
+        <ul className="xl:flex justify-center items-center gap-4 hidden">
+          {
+            navLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.path}>{link.name}</a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
-      <div className={`h-screen bg-indigo-800 absolute w-full top-0 right-0 transition-all duration-500 ${isOpen ? "translate-x-0 opacity-100 blur-none" : "translate-x-full opacity-0 blur-lg"}`}>
+      <div className={`block xl:hidden h-screen bg-indigo-800 absolute w-full top-0 right-0 transition-all duration-500 ${isOpen ? "translate-x-0 opacity-100 blur-none" : "translate-x-full opacity-0 blur-lg"}`}>
         <button
           className="block top-2 right-0 absolute w-10 font-bold text-xl aspect-square"
           onClick={toggleMenu}

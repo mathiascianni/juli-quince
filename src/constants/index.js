@@ -35,6 +35,10 @@ export const eventOrder = [
         icon: "icons/fork.svg",
     },
     {
+        title: "Show",
+        icon: "icons/show.svg",
+    },
+    {
         title: "Vals",
         icon: "icons/music.svg",
     },
