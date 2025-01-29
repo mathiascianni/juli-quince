@@ -17,6 +17,7 @@ const Modal = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <>
+
           <motion.div
             className="top-0 left-0 z-[100] fixed inset-0 flex flex-col justify-center items-center bg-black/50 backdrop-blur-lg px-4 w-full h-full cursor-pointer"
             initial={{ opacity: 0 }}
@@ -33,18 +34,32 @@ const Modal = ({ isOpen, onClose }) => {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="mb-6 font-bold font-title text-indigo-700 text-lg">Alias</h2>
-              <p className="mb-8 text-indigo-700">julieta.cianni</p>
+              <div className="text-indigo-700">
+                <div className="flex justify-center gap-4 my-4">
+                  <h2 className="font-title">Nombre y apellido</h2>
+                  <p className="font-bold">Julieta Antonella Cianni</p>
+                </div>
+                <div className="flex justify-center gap-4 mb-4">
+                  <h2 className="font-title">Entidad</h2>
+                  <p className="font-bold">Mercadopago</p>
+                </div>
+                <div className="flex justify-center gap-4 mb-4">
+                  <h2 className="mb-6 font-bold font-title">Alias</h2>
+                  <p className="font-bold">julieta.cianni</p>
+                </div>
+              </div>
+
               <button
                 disabled={isCopied}
                 onClick={copyToClipboard}
                 className={`px-4 py-2 rounded text-white transition-colors duration-300 ${isCopied
-                    ? "bg-green-500 hover:bg-green-600"
-                    : "bg-indigo-700 hover:bg-indigo-800"
+                  ? "bg-green-500 hover:bg-green-600"
+                  : "bg-indigo-700 hover:bg-indigo-800"
                   }`}
               >
                 {isCopied ? "Alias copiado ✅" : "Copiar alias 📋"}
               </button>
+
             </motion.div>
             <button className="top-4 right-4 absolute"><img src="icons/close.svg" alt="" /></button>
           </motion.div>
